@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/Snap.svg/dist/snap.svg-min.js"></script>
+
+    <style>
+        #svg {
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <script>
+
+
+        // First lets create our drawing surface out of existing SVG element
+        // If you want to create new surface just provide dimensions
+        // like s = Snap(800, 600);
+        var s = Snap(600,600);
+
+        var g = s.group();
+
+        Snap.load("nls.svg", function (f) {
+            // Note that we traversre and change attr before SVG
+            // is even added to the page
+//            g = f.select("g");
+//            f.select("polygon[fill='#000000']").attr({fill: "#bada55"});
+//            s.append(g);
+            g.append(f);
+            // Making croc draggable. Go ahead drag it around!
+//            g.drag();
+            // Obviously drag could take event handlers too
+            // Looks like our croc is made from more than one polygon...
+        });
+
+        g.mouseover(function(e){
+            console.log(e);
+
+            var $this		= $( 'svg' ),
+                eX			= e.offsetX,
+                eY			= e.offsetY,
+                dim			= this.getBoundingClientRect(),
+                w			= dim.width/2,
+                h			= dim.height/2,
+                tiltLimit	= 15,
+                posX		= ( w - eX ) / tiltLimit,
+                posY		= ( h - eY ) / tiltLimit;
+
+            $this.css({
+                'transform': 'translate( ' + posX + 'px ,  ' + posY + 'px )'
+            });
+        });
+
+        $(document).ready(function(){
+            $card	= $( 'svg' );
+
+            $card.on( 'mousemove', function( e ) {
+//                console.log('mouse over');
+
+                var $this		= $( this ),
+                    eX			= e.offsetX,
+                    eY			= e.offsetY,
+                    dim			= this.getBoundingClientRect(),
+                    w			= dim.width/2,
+                    h			= dim.height/2,
+                    tiltLimit	= 15,
+                    posX		= ( w - eX ) / tiltLimit,
+//                    posX		= ( h - eY ) * ( tiltLimit / h ),
+//                    posY		= ( w - eX ) * ( tiltLimit / w ) * -1;
+                    posY		= ( h - eY ) / tiltLimit;
+
+                $this.css({
+                    'transform': 'translate( ' + posX + 'px ,  ' + posY + 'px )'
+                });
+
+//                console.log(eX + ' / ' + eY);
+            });
+
+            $card.mouseleave( function( e ) {
+
+//                console.log('mouse leave');
+
+                var $el = $( this );
+
+            });
+        });
+    </script>
+</body>
+</html>

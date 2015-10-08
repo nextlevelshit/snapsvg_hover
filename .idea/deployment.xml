@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_CONTENT" stopOnFirstError="true" exclude=".svn;.cvs;.idea;.DS_Store;.git;*.pdf;*.gif;*.bmp;*.gif;*.txt;*.jpg;*.jpeg;*.png;*.mp4;*.avi;*.mpg;*.m4v;*.xlsx;*.xlm;*.doc;*.csv;*.zip;*.rar;*.xml;*.tar.gz;*.flv;*.psb;*.psd;*.TIF;*.tif;*.swf;*.wmv;*.wav;*.mp3;*.mp4;*.asf;*.exe;*.bat;*.xls;*.bak;*.pst;*.cab;*.msi;*.mov;*.db;Temp;admin;sitemaps;templates_c;preissuchmaschinen;findologic;*phoenix*;.ssh;*.m4a;*.mdb;*.sql.gz;*.tar.gz;*.eps;*.sys;" autoUploadExternalChanges="true">
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
